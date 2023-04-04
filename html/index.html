@@ -1,0 +1,110 @@
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+</head>
+
+<body>
+
+
+    <!-- <h1>Users :</h1> -->
+    <!-- <input placeholder="Ask question ?" /> -->
+    <!-- <iframe allow="microphone;" width="350" height="430"
+        src="https://console.dialogflow.com/api-client/demo/embedded/ea7b9503-8af4-4167-ac59-0af9aa676fcf">
+    </iframe> -->
+    <script src="https://apps.usw2.pure.cloud/widgets/9.0/cxbus.min.js"
+        onload="javascript:CXBus.configure({debug:false, pluginsPath:`https://apps.usw2.pure.cloud/widgets/9.0/plugins/`}); CXBus.loadPlugin('widgets-core');"></script>
+
+    <script>
+        window._genesys = {
+            "widgets": {
+                "webchat": {
+                    "transport": {
+                        "type": "purecloud-v2-sockets",
+                        "dataURL": "https://api.usw2.pure.cloud",
+                        "deploymentKey": "b6ecbc70-70ec-47ff-81f9-7f57314aeba3",
+                        "orgGuid": "08771e1b-8e3e-4cf7-b960-dc6dda5897a1",
+                        "interactionData": {
+                            "routing": {
+                                "targetType": "QUEUE",
+                                "targetAddress": "ChatSupport",
+                                "priority": 2
+                            }
+                        }
+                    },
+                    "userData": {
+                        "addressStreet": "",
+                        "addressCity": "",
+                        "addressPostalCode": "",
+                        "addressState": "",
+                        "phoneNumber": "",
+                        "customField1Label": "",
+                        "customField1": "",
+                        "customField2Label": "",
+                        "customField2": "",
+                        "customField3Label": "",
+                        "customField3": ""
+                    }
+                }
+            }
+        };
+
+        function getAdvancedConfig() {
+            return {
+                "form": {
+                    "autoSubmit": false,
+                    "firstname": "jayasurya",
+                    "lastname": "vs",
+                    "email": "",
+                    "subject": ""
+                },
+                "formJSON": {
+                    "wrapper": "<table></table>",
+                    "inputs": [
+                        {
+                            "id": "cx_webchat_form_firstname",
+                            "name": "firstname",
+                            "maxlength": "100",
+                            "placeholder": "Required",
+                            "label": "First Name"
+                        },
+                        {
+                            "id": "cx_webchat_form_lastname",
+                            "name": "lastname",
+                            "maxlength": "100",
+                            "placeholder": "Required",
+                            "label": "Last Name"
+                        },
+                        {
+                            "id": "cx_webchat_form_email",
+                            "name": "email",
+                            "maxlength": "100",
+                            "placeholder": "Optional",
+                            "label": "Email"
+                        },
+                        {
+                            "id": "cx_webchat_form_subject",
+                            "name": "subject",
+                            "maxlength": "100",
+                            "placeholder": "Optional",
+                            "label": "Subject"
+                        }
+                    ]
+                }
+            };
+        }
+
+        const customPlugin = CXBus.registerPlugin('Custom');
+    </script>
+
+    <button type="button" id="chat-button" onclick="customPlugin.command('WebChat.open', getAdvancedConfig());">Start
+        Chat</button>
+</body>
+
+</html>

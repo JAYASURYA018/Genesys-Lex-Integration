@@ -1,0 +1,17 @@
+body {
+    position: relative;
+}
+
+[type=button]:not(:disabled),
+[type=reset]:not(:disabled),
+[type=submit]:not(:disabled),
+button:not(:disabled) {
+    background-color: bisque;
+
+    border-radius: 12px;
+}
+
+.cx-webchat .cx-form th .cx-control-label {
+    white-space: nowrap !important;
+    color: #fff !important;
+}
